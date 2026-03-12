@@ -61,18 +61,24 @@ public:
 };
 int main()
 {
+    srand(time(0)); // random generator
+
     cout << fixed << setprecision(2);
+
     // creating pointer to first chair object
     Chair *chairPtr = new Chair;
-    chairPtr->setLegs(4);
-    chairPtr->setPrices(121.21, 232.32, 414.14);
-    chairPtr->print();
+     chairPtr->print();
+    // chairPtr->setLegs(4);
+    // chairPtr->setPrices(121.21, 232.32, 414.14);
+    double livingPrices[SIZE] = {525.25, 434.34, 252.52}; // price array
+    Chair *livingChair = new Chair(3, livingPrices);      // new constructor fomat
+   livingChair->print();
+
     // creating dynamic chair object with constructor
-    Chair *livingChair = new Chair(3);
-    livingChair->setPrices(525.25, 434.34, 252.52);
-    livingChair->print();
+    
     delete livingChair;
     livingChair = nullptr;
+
     // creating dynamic array of chair objects
     Chair *collection = new Chair[SIZE];
     collection[0].setLegs(4);
